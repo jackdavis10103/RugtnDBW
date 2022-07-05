@@ -10,7 +10,6 @@ def output(video_extractor, pretty_print=True):
     out['url'] = ve.url
     out['title'] = ve.title
     out['site'] = ve.name
-    out['streams'] = ve.streams
     try:
         if ve.dash_streams:
             out['streams'].update(ve.dash_streams)
@@ -31,7 +30,6 @@ def output(video_extractor, pretty_print=True):
     if pretty_print:
         print(json.dumps(out, indent=4, ensure_ascii=False))
     else:
-        print(json.dumps(out))
 
 # a fake VideoExtractor object to save info
 class VideoExtractor(object):
